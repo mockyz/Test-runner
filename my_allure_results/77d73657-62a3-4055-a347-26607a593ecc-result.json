@@ -1,0 +1,47 @@
+{
+  "name": "test_send_email_code_datadriver",
+  "status": "passed",
+  "start": 1564393802835,
+  "stop": 1564393802835,
+  "uuid": "c97b6063-2886-4ad3-9231-04cfb016d712",
+  "historyId": "279892d81dd1bb56c3275fb8de699106",
+  "fullName": "testsuites.ontoservice.test_email_verification.TestOntoServiceVerification#test_send_email_code_datadriver",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "email verification"
+    },
+    {
+      "name": "parentSuite",
+      "value": "testsuites.ontoservice"
+    },
+    {
+      "name": "suite",
+      "value": "test_email_verification"
+    },
+    {
+      "name": "subSuite",
+      "value": "TestOntoServiceVerification"
+    },
+    {
+      "name": "host",
+      "value": "pwlocal.local"
+    },
+    {
+      "name": "thread",
+      "value": "31637-MainThread"
+    },
+    {
+      "name": "framework",
+      "value": "pytest"
+    },
+    {
+      "name": "language",
+      "value": "cpython3"
+    },
+    {
+      "name": "package",
+      "value": "testsuites.ontoservice.test_email_verification"
+    }
+  ]
+}

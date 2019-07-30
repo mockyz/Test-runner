@@ -1,0 +1,25 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.douban.com/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+requests = "*"
+jinja2 = "*"
+dictor = "*"
+jmespath = "*"
+pytest = "*"
+jsonpickle = "*"
+related = "*"
+structlog = "*"
+allure-pytest = "*"
+redis = "*"
+xlrd = "*"
+
+[requires]
+python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true

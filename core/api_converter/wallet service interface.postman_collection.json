@@ -1,0 +1,277 @@
+{
+	"variables": [],
+	"info": {
+		"name": "wallet service interface",
+		"_postman_id": "f02e185d-5133-586b-9ae3-88daa370da5e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register coin",
+			"request": {
+				"url": "http://192.168.65.139:40337/api/v1/registerCoin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"coinType\":\"OMG\",\n\t\"address\":\"127.0.0.1:20337\"\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "un register coin",
+			"request": {
+				"url": "http://192.168.65.139:40337/api/v1/unRegisterCoin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"coinType\":\"ETH\",\n\t\"address\":\"127.0.0.1\"\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create account",
+			"request": {
+				"url": "{{url}}/api/v1/newaccount",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"businessNo\":\"1996\",\n\t\"data\":[\n\t\t{\"coinType\":\"PAX-OEP4\"}\n\t]\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setCollectThreshold",
+			"request": {
+				"url": "{{url}}/api/v1/setcollectthreshold",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"businessNo\":\"123456789\",\n\t\"data\":[\n\t\t{\n\t\t\t\"coinType\":\"ETH\",\n\t\t\t\"threshold\":\"0.2\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"ETH_USDT\",\n\t\t\t\"threshold\":\"100\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"ZIL\",\n\t\t\t\"threshold\":\"100\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"ZRX\",\n\t\t\t\"threshold\":\"100\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"OMG\",\n\t\t\t\"threshold\":\"100\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"TUSD\",\n\t\t\t\"threshold\":\"100\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"PAX\",\n\t\t\t\"threshold\":\"100\"\n\t\t}\n\t]\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reconciliationdetails",
+			"request": {
+				"url": "http://192.168.65.142:40337/api/v1/reconciliationdetails",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"businessNo\":\"120004\",\n\t\"reconciliationType\":\"2\",\n\t\"beginTime\":\"1545619025\",\n\t\"endTime\":\"1545620165\"\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkAddr",
+			"request": {
+				"url": "http://192.168.65.139:40337/api/v1/checkdestaddrisvalid",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"coinType\":\"ETH\",\n\t\"businessNo\":\"23423\",\n\t\"destAddr\":\"0x85f2f3136f3632deeff93f288a2bfafec86d8\"\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queryBalance",
+			"request": {
+				"url": "https://192.168.65.145:8443/api/v1/queryledgeramountbalance",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"businessNo\":\"222222\",\n\t\"data\":[\n\t\t{\n\t\t\t\"coldWalletAddr\":\"0xEF810226017D4856cfF803FFC1194c30e5454E00\",\n\t\t\t\"coinType\":\"ETH\"\n\t\t},\n\t\t{\n\t\t\t\"coldWalletAddr\":\"0xEF810226017D4856cfF803FFC1194c30e5454E00\",\n\t\t\t\"coinType\":\"ZIL\"\n\t\t},\n\t\t{\n\t\t\t\"coldWalletAddr\":\"0x27D5525F26111966dfF95A2854EB8eB9895AA5dA\",\n\t\t\t\"coinType\":\"ZRX\"\n\t\t},\n\t\t{\n\t\t\t\"coldWalletAddr\":\"0xEF810226017D4856cfF803FFC1194c30e5454E00\",\n\t\t\t\"coinType\":\"OMG\"\n\t\t},\n\t\t{\n\t\t\t\"coldWalletAddr\":\"0xEF810226017D4856cfF803FFC1194c30e5454E00\",\n\t\t\t\"coinType\":\"TUSD\"\n\t\t},\n\t\t{\n\t\t\t\"coldWalletAddr\":\"0xEF810226017D4856cfF803FFC1194c30e5454E00\",\n\t\t\t\"coinType\":\"PAX\"\n\t\t},\n\t\t{\n\t\t\t\"coldWalletAddr\":\"0xEF810226017D4856cfF803FFC1194c30e5454E00\",\n\t\t\t\"coinType\":\"ETH_USDT\"\n\t\t},\n\t\t{\n\t\t\t\"coldWalletAddr\":\"0xEF810226017D4856cfF803FFC1194c30e5454E00\",\n\t\t\t\"coinType\":\"ETH_USDT\"\n\t\t}\n\t]\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queryHistoryMsg",
+			"request": {
+				"url": "http://192.168.65.143:40337/api/v1/queryhistorymsg",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"msgId\":\"ETH1550645298\"\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "businessOperStatusQuery",
+			"request": {
+				"url": "http://192.168.65.139:40337/api/v1/businessoperstatusquery",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"businessNo\":\"101\"\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queryBatchStatus",
+			"request": {
+				"url": "http://192.168.65.139:40337/api/v1/querybatchstatus",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"businessno\":\"101\",\n\t\"batchId\":\"12\"\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "emergencyStop",
+			"request": {
+				"url": "http://192.168.65.142:40337/api/v1/emergencystoporstartsvr",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"businessNo\":\"222222\",\n\t\"status\":\"1\",\n\t\"operType\":\"2\",\n\t\"data\":[\n\t]\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "emergencyStart",
+			"request": {
+				"url": "http://192.168.65.142:40337/api/v1/emergencystoporstartsvr",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"businessNo\":\"222222\",\n\t\"status\":\"0\",\n\t\"operType\":\"1\",\n\t\"data\":[\n\t\t{\n\t\t\t\"coinType\":\"ETH\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"ETH_USDT\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"OMG\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"ZIL\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"ZRX\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"TUSD\"\n\t\t},\n\t\t{\n\t\t\t\"coinType\":\"PAX\"\n\t\t}\n\t]\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "applyForWithdraw",
+			"request": {
+				"url": "{{url}}/api/v1/applyforwithdrawal",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"batchId\":\"8822\",\n\t\"data\":[\n\t\t{\n\t\t\t\"businessNo\":\"901\",\n\t\t\t\"coinType\":\"PAX-OEP4\",\n\t\t\t\"fromAddr\":\"AQMvEETtJxi8PVGZFqPKBpdH5F6eXnG6Ci\",\n\t\t\t\"data\":[\n\t\t\t\t{\n\t\t\t\t\t\"destAddr\":\"APhBZdLmXbKHGtgGfB4YJUzEnV5BwFwAQ3\",\n\t\t\t\t\t\"sendAmount\":\"96\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"businessNo\":\"901\",\n\t\t\t\"coinType\":\"PAX-OEP4\",\n\t\t\t\"fromAddr\":\"AQMvEETtJxi8PVGZFqPKBpdH5F6eXnG6Ci\",\n\t\t\t\"data\":[\n\t\t\t\t{\n\t\t\t\t\t\"destAddr\":\"AUSSA1rcgktKwrvQGxAUBvMuuLxY7iKv4f\",\n\t\t\t\t\t\"sendAmount\":\"96\"\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirmWithdraw",
+			"request": {
+				"url": "{{url}}/api/v1/withdrawalbatchconfirm",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"coinType\":\"PAX-OEP4\",\n\t\"businessNo\":\"101\",\n\t\"batchId\":\"14353\",\n\t\"result\":\"0\"\n}"
+				}
+			},
+			"response": []
+		}
+	]
+}

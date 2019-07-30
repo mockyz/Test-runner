@@ -1,0 +1,58 @@
+{
+  "name": "test_send_email_code_invalid_device_code",
+  "status": "passed",
+  "attachments": [
+    {
+      "name": "stdout",
+      "source": "33fd47f3-91cb-4914-a55a-775a9cd5aa45-attachment.txt",
+      "type": "text/plain"
+    }
+  ],
+  "start": 1564393802456,
+  "stop": 1564393802831,
+  "uuid": "8fcfed00-4e3b-4fbd-9801-858db14e7bab",
+  "historyId": "91ba78b83ce9a68361df0cac881712e3",
+  "fullName": "testsuites.ontoservice.test_email_verification.TestOntoServiceVerification#test_send_email_code_invalid_device_code",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "email verification"
+    },
+    {
+      "name": "feature",
+      "value": "send email verification failed"
+    },
+    {
+      "name": "parentSuite",
+      "value": "testsuites.ontoservice"
+    },
+    {
+      "name": "suite",
+      "value": "test_email_verification"
+    },
+    {
+      "name": "subSuite",
+      "value": "TestOntoServiceVerification"
+    },
+    {
+      "name": "host",
+      "value": "pwlocal.local"
+    },
+    {
+      "name": "thread",
+      "value": "31637-MainThread"
+    },
+    {
+      "name": "framework",
+      "value": "pytest"
+    },
+    {
+      "name": "language",
+      "value": "cpython3"
+    },
+    {
+      "name": "package",
+      "value": "testsuites.ontoservice.test_email_verification"
+    }
+  ]
+}

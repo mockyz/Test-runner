@@ -1,0 +1,8 @@
+req_url:api/v1/onto/email/verificationcode/send
+domain:ontoservice
+headers{'ContentType': 'application/json', 'Accept': 'application/json'}
+req_body:{'OwnerOntId': 'did:ont:AWhbY6dKWvWYRyoYKNyfhm2MGnGuTns22Z', 'DeviceCode': 'device1263429723', 'Email': '16672782277@163.com'}
+query_params:[]
+method:POST
+
+b'{"Action":"","Error":63003,"Desc":"FAIL, verify devicecode fail.","Version":"1.0","Result":false}'
