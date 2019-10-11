@@ -1,5 +1,7 @@
 # encoding: utf-8
+import json
 
+import logging
 import requests
 from requests import Response
 
@@ -11,11 +13,12 @@ from core.utils.kv_utils import EasyKVObject, kv_util, KVUtil
 
 class Client:
 
-    def __init__(self, params, env=TEST_ENV):
-        self.params = params
+    def __init__(self, env=TEST_ENV):
+        # if self.params is not None:
+        #     self.params.update(params)
         self.env = env
 
-    def invoke(self):
+    def invoke(self, params=None):
         """
         what ever
         :return: ClientResponse
@@ -46,10 +49,11 @@ class HttpClient(Client):
     }
     req_body = {}
     query_params = []
+    params = {}
     method = "post"
 
-    def __init__(self, params=None, env=TEST_ENV):
-        super().__init__(params, env)
+    def __init__(self, env=TEST_ENV):
+        super().__init__(env)
 
     def invoke(self, params=None):
         """
@@ -57,15 +61,26 @@ class HttpClient(Client):
         :return:
         """
         if params is not None:
-            self.params = params
+            self.params.update(params)
+        if self.params is None:
+            self.params = {}
         real_req_url = self.__build_request_url()
         self.__build_header()
         self.build_body()
         http_method = http_methods.get(self.method.lower(), requests.get)
         # todo: handler json and form-data
-        response = http_method(url=real_req_url, headers=self.headers, json=self.req_body)
-        print(self)
+        self.req_url = real_req_url
+
+        # print(json.dumps(self.req_body))
+        logging.info("--------------====----------------")
+        logging.info(json.dumps(self.req_body))
+        logging.info("--------------====----------------")
+        response = http_method(url=self.req_url, headers=self.headers, json=self.req_body, verify=False)
+        # print(self)
         print(response.content)
+        logging.info("--------------====----------------")
+        logging.info(response.content)
+        logging.info("--------------====----------------")
         return make_client_response(response)
 
     def __build_request_url(self):
@@ -83,7 +98,9 @@ class HttpClient(Client):
                 self.headers.update({h_name: h_value})
 
     def __make_request_path(self):
-        if len(self.params) > 1:
+        if self.params is None:
+            return self.req_url
+        if len(self.params) > 0:
             self.req_url = self.req_url.format(**self.params)
         return self.req_url
 
@@ -98,26 +115,38 @@ class HttpClient(Client):
         # query_temp ="%s=%s&"
         for query_param in self.query_params:
             if self.params.get(query_param, "") != "":
-                query_url = query_url + query_param + "=" + self.params.get(query_param, "") + "&"
+                query_url = query_url + str(query_param) + "=" + str(self.params.get(query_param, "")) + "&"
         return query_url
 
     def with_body_param(self, path, value):
         KVUtil.set_value(self.req_body, path, value)
         return self
 
+    def with_body_params(self, **kwargs):
+        for key, value in kwargs.items():
+            KVUtil.set_value(self.req_body, key, value)
+        return self
+
+    def with_header_param(self, path, value):
+        KVUtil.set_value(self.headers, path, value)
+        return self
+
     def with_path_param(self, **kwargs):
-        self.req_url = self.req_url.format(**kwargs)
+        for key, value in kwargs.items():
+            KVUtil.set_value(self.params, key, value)
         return self
 
     def with_query_param(self, query_name, query_value):
-        KVUtil.set_value(self.query_params, query_name, query_value)
+        if self.params is None:
+            self.params = {}
+        self.params[query_name] = query_value
         return self
 
     def __str__(self):
         temp = "req_url:" + self.req_url + "\n"
         temp = temp + "domain:" + self.domain + "\n"
         temp = temp + "headers" + str(self.headers) + "\n"
-        temp = temp + "req_body:" + str(self.req_body) + "\n"
+        temp = temp + "req_params:" + str(self.req_body) + "\n"
         temp = temp + "query_params:" + str(self.query_params) + "\n"
         temp = temp + "method:" + self.method + "\n"
         return temp

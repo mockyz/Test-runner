@@ -26,9 +26,9 @@ class IntegrationExecutor:
 
         service_type = test_step.service
         if issubclass(service_type, Client):
-            service = service_type(test_step.params, env=self.env)
+            service = service_type(env=self.env)
             self.logger.msg("request params: {}".format(test_step.params))
-            client_response = service.invoke()
+            client_response = service.invoke(test_step.params)
             self.logger.msg(client_response.to_json())
             self.test_result_collector.add_response(test_step.name, client_response)
             return client_response

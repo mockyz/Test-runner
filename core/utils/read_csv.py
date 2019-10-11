@@ -23,6 +23,7 @@ def GetFile2(dir):
         for data in datas.values:
             values = (data[0], data[1], pymysql.escape_string(dir[0:-18]+(data[2])), path[-2])
             exe_sql = (inset_sql % values)
+            print(exe_sql)
             DbHelper.execute_sql(exe_sql)
 
     if os.path.isdir(dir):
@@ -32,6 +33,8 @@ def GetFile2(dir):
 
 
 if __name__ == '__main__':
-    # GetFile2('C:\\Users\\mock\\Desktop\\工作台\\Ontology\\2019-08-14_08-25-08\\')
-    DbHelper.execute_sql(create_table % time.strftime('%Y-%m-%d_%H-%M-%S', time.localtime(time.time())))
+    #
+    # tName = time.strftime('%Y-%m-%d_%H-%M-%S', time.localtime(time.time()))
+    # DbHelper.execute_sql(create_table % tName)
+    GetFile2('C:\\Users\\mock\\Desktop\\工作台\\Ontology\\1.7.2\\9-20-172\\')
 

@@ -183,4 +183,4 @@ class PostmanLogger:
 
 
 if __name__ == '__main__':
-    PostManParser().generate_api_testcode("wallet service interface.postman_collection.json")
+    PostManParser().generate_api_testcode("OntoCandy.json")

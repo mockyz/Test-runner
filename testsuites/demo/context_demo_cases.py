@@ -13,7 +13,9 @@ context_demo_cases = {
                 "name": "call json api to get author name",
                 "precondition": {},
                 "service": ResponseFormatGet,
-                "params": {},
+                "params": {
+
+                },
                 "post_action": {"author": "slideshow.author"},
             },
             {

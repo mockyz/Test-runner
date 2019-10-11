@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 
 TESTS=$1
 pytest $TESTS --alluredir=my_allure_results

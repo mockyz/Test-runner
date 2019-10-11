@@ -20,6 +20,8 @@ class KVUtil:
         :param value:
         :return:
         """
+        if not isinstance(kv,dict):
+            return
         data_paths = expr.split(".")
         depth = len(data_paths)
         data = kv
