@@ -1,6 +1,6 @@
 [[source]]
 name = "pypi"
-url = "https://mirrors.aliyun.com/pypi/simple"
+url = "https://pypi.douban.com/simple"
 verify_ssl = true
 
 [dev-packages]
@@ -17,10 +17,7 @@ structlog = "*"
 allure-pytest = "*"
 redis = "*"
 xlrd = "*"
-ontology-python-sdk = {path = "./ontology-python-sdk"}
-records = "*"
-pymysql = "*"
-swagger-spec-validator = "*"
+ontology-python-sdk = "*"
 
 [requires]
 python_version = "3.7"
