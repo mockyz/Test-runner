@@ -7,6 +7,7 @@ class DBBase(object):
         self.conn = MongoClient(host, port)
         self.db = self.conn[database]
         self.collection = self.db[collection]
+        self.query = self.collection.find()
 
     def get_state(self):
         return self.conn is not None and self.collection is not None
@@ -80,22 +81,24 @@ class DBBase(object):
         res = BaseHandle.find_many(self.collection, data, data_field)
         return res
 
-    def query_limit(self, query, num):
+    def query_limit(self, num):
         """db.collection.find(<query>).limit(<number>) 获取指定数据"""
-        res = query.limit(num)
+        res = self.query.limit(num)
+        # res = query.limit(num)
         return res
 
-    def query_count(self, query):
-        res = query.count()
+    def query_count(self):
+        res = self.query.count()
         return res
 
-    def query_skip(self, query, num):
-        res = query.skip(num)
+    # 跳过指定条数据
+    def query_skip(self, num):
+        res = self.query.skip(num)
         return res
 
-    def query_sort(self, query, data):
+    def query_sort(self, data):
         """db.orders.find().sort( { amount: -1 } ) 根据amount 降序排列"""
-        res = query.sort(data)
+        res = self.collection.find().sort(data)
         return res
 
     def delete_one(self, data):
@@ -108,3 +111,14 @@ class DBBase(object):
         res = BaseHandle.delete_many(self.collection, data)
         return res
 
+    def update_one(self, data_condition, data_set, value):
+        """修改一条数据,data_condition为查询条件，data_set为修改字段，value为修改后值"""
+        res = BaseHandle.update_one(self.collection, data_condition, data_set, value)
+        print('修改成功')
+        return res
+
+    def update_many(self, data_condition, data_set, value):
+        """修改多条数据,data_condition为查询条件，data_set为修改字段，value为修改后值"""
+        res = BaseHandle.update_many(self.collection, data_condition, data_set, value)
+        print('修改成功')
+        return res

@@ -28,15 +28,17 @@ class BaseHandle(object):
         return res
 
     @staticmethod
-    def update_one(collection, data_condition, data_set):
+    def update_one(collection, data_condition, data_set, value):
         """修改一条数据"""
-        res = collection.update_one(data_condition, data_set)
+        update_one = {'$set': {"" + data_set + "": "" + value + ""}}
+        res = collection.update_one(data_condition, update_one)
         return res
 
     @staticmethod
-    def update_many(collection, data_condition, data_set):
+    def update_many(collection, data_condition, data_set, value):
         """ 修改多条数据 """
-        res = collection.update_many(data_condition, data_set)
+        update_many = {'$set': {""+data_set+"": ""+value+""}}
+        res = collection.update_many(data_condition, update_many)
         return res
 
     @staticmethod
