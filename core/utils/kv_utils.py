@@ -3,7 +3,7 @@ import json
 
 import jsonpickle
 
-from . import data_extractor
+from .extractor import data_extractor
 
 
 class KVUtil:

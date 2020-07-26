@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from server import BaseCollection
+from docs.server import BaseCollection
 
 
 class APIDesc(BaseCollection):

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 import time
 import os
-from utils.config import Config
+# from utils.config import Config
 
 class Logger():
 	'''
 	日志处理
 	'''
 	def __init__(self):
-		self.prefix = Config.LOG_PATH + "/" + time.strftime('%Y-%m-%d_%H-%M-%S', time.localtime(time.time()))
+		self.prefix = "Config.LOG_PATH "+ "/" + time.strftime('%Y-%m-%d_%H-%M-%S', time.localtime(time.time()))
 		self.prefixFul = self.prefix
 		self.init = False
 		self.logfile = None

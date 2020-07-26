@@ -21,8 +21,6 @@ from api.ontrade import ontrade_api as OnTradeAPI
 from core.utils.assertpy import assert_that
 from testsuites.test_demo.utils import *
 
-__author__ = 'patrick'
-
 
 class TestOntradeBase:
 

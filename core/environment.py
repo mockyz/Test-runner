@@ -1,5 +1,5 @@
 # encoding: utf-8
-from .utils import kv_util
+from .utils.kv_utils import kv_util
 
 ENV_TEST = "TEST"
 ENV_PROD = "PROD"

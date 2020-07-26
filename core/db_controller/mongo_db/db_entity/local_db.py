@@ -1,5 +1,5 @@
 
-from db_controller.mongo_db.base.db_base import DBBase
+from core.db_controller.mongo_db.base.db_base import DBBase
 
 
 class DBTest(DBBase):

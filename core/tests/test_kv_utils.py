@@ -1,5 +1,5 @@
 # encoding: utf-8
-from core.utils import  kv_util
+from core.utils.kv_utils import kv_util
 
 simple_dict_json = {
     "characters": {

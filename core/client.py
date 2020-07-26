@@ -7,9 +7,8 @@ from requests import Response
 
 from core.environment import TEST_ENV
 from core.exceptions import ClientException
-from core.utils import data_extractor
+from core.utils.extractor import data_extractor
 from core.utils.kv_utils import EasyKVObject, kv_util, KVUtil
-
 
 class Client:
 
