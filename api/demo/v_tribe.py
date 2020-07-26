@@ -1,11 +1,11 @@
 
-VTribeAPI_SERVER = "VTribeAPI"
+VTribeAPI_SERVER = "VTribe"
 from core.client import HttpClient
 
 
 class VTribeAPI(HttpClient):
     method = "POST"
-    domain = "http://47.100.0.26:8081"
+    domain = VTribeAPI_SERVER
     headers = {
         "accept": "application/json",
         "content-type": "application/json"
@@ -25,8 +25,11 @@ class Login(VTribeAPI):
     username=sang&password=123&
     """
     req_url = "/login"
-    req_body = {
-        "businessNo": "",
-        "data": ""
-    }
-
+    req_body = {"username":"${#TestUserName#登陆用户名}", "password":"${#TestPWD#登陆密码}"}
+#
+# {
+#         "batchId": "${#TestCase#批次号}",
+#         "businessNo": "${#TestSuite#业务流水号}",
+#         "coinType": "${#TestCase#coinType}",
+#         "result": "${#TestCase#是否出金}"
+#     }

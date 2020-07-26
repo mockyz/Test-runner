@@ -1,6 +1,4 @@
 # -*- coding: UTF-8 -*-
-# !/usr/bin/env
-
 import pymysql
 import logging
 

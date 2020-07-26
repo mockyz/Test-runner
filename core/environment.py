@@ -11,12 +11,9 @@ environments = {
         "candybox": "https://candyapit.ont.io",
         "WALLET_SERVER": "https://42.159.155.44:8443",
         "ONTRADE_SERVER": "https://42.159.155.44:8443",
-        "ontoservice": "https://app.ont.io/S5/",
-        "ontoservice2": "https://app.ont.io/S5/",
-        "support_server": "http://127.0.0.1:9090/",
-        "ontid_server": "http://139.219.136.188:10331/",
-        "explorer_server":"http://52.77.140.175:8686",
-        "db": {"ontpass": "mysql://readonly:ZEwyRiwCZDWBdA==@128.1.132.227/ontpass"}
+        "db": {"ontpass": "mysql://readonly:ZEwyRiwCZDWBdA==@128.1.132.227/ontpass"},
+        "VTribe":"http://47.100.0.26:8081"
+
     },
     "prod": {
         "domain": "http://httpbin.org",
