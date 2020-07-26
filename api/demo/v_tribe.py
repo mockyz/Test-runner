@@ -5,7 +5,7 @@ from core.client import HttpClient
 
 class VTribeAPI(HttpClient):
     method = "POST"
-    domain = VTribeAPI_SERVER
+    domain = "http://47.100.0.26:8081"
     headers = {
         "accept": "application/json",
         "content-type": "application/json"
@@ -22,8 +22,9 @@ class VTribeAPI(HttpClient):
 class Login(VTribeAPI):
     """
     登陆
+    username=sang&password=123&
     """
-    req_url = "/api/v1/newaccount"
+    req_url = "/login"
     req_body = {
         "businessNo": "",
         "data": ""
