@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from app.apidesc.models import APIDesc
 from flask import Flask, request
+
+from docs.server.apidesc.models import APIDesc
 
 app = Flask(__name__)
 logger = logging.getLogger('APP')
