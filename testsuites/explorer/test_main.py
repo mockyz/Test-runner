@@ -88,8 +88,8 @@ class taobao():
 
 if __name__ == '__main__':
     # 填入自己的用户名，密码
-    username = 'xiazhi32013'
-    password = 'yangzhu123'
+    username = 'username'
+    password = 'password'
     tb = taobao()
     tb.login(username, password)
     tb.clear_cart()
