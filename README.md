@@ -26,16 +26,6 @@ pipenv install
 
 测试结果会自动打开
 
-## python ontology-python-sdk - 只有onto相关的需要
-
-- 本地创建wallet
-- 本地创建身份
-- 身份注册到ont 区块链上
-- onto 注册
-
-github 地址: https://github.com/ontio/ontology-python-sdk.git
- 
-
 
 ## Python Test/JAVA UNIT Test with Allure Report
 
