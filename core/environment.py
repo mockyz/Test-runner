@@ -12,8 +12,8 @@ environments = {
         "WALLET_SERVER": "https://42.159.155.44:8443",
         "ONTRADE_SERVER": "https://42.159.155.44:8443",
         "db": {"ontpass": "mysql://readonly:ZEwyRiwCZDWBdA==@128.1.132.227/ontpass"},
-        "VTribe":"http://47.100.0.26:8081",
-        "mallcoo": "https://m-t.mallcoo.cn"
+        "VTribe":"http://47.100.0.26:8081"
+
     },
     "prod": {
         "domain": "http://httpbin.org",
