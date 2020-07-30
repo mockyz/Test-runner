@@ -23,11 +23,6 @@ pip install pipenv
 pipenv install
 ```
 
-- 运行demo看看结果
-
-```sh 
-sh <测试文件路径>
-```
 
 测试结果会自动打开
 
