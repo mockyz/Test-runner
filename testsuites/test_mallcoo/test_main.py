@@ -4,7 +4,22 @@ import logging
 import json
 
 from api.demo import mallcoo as MallcooAPI
-from testsuites.test_mallcoo.mallcoo_base_config import MallcooBaseConfig
+from  .mallcoo_base_config import MData
+
+class MallcooBaseConfig(object):
+    def Get_Token(self):
+        token = Test_mallcoo.test_login
+        return token
+
+    def Login_Data_Case(self):
+        Login_Data_Case = {"mallid": 10296, "mobile": "18576706077", "pwd": "123456hu"}
+        return Login_Data_Case
+
+    def Select_Data_Case(self):
+        token = self.Get_Token()
+        Select_Data_Case = {'mallid': 10296, 'pageIndex': 2, 'pageSize': 5, 'token': token}
+        return Select_Data_Case
+
 
 
 @allure.epic("mallcoo测试demo")
@@ -25,12 +40,11 @@ class Test_mallcoo:
     #     token = response.get_response_attr('d')['Token']
     #     return token
 
-    # select_data = {'mallid': 10296, 'pageIndex': 2, 'pageSize': 5, 'token': token}
 
     @allure.feature("mallcoo测试demo-select")
     @allure.title("{caseName}")
     @pytest.mark.parametrize('caseName,inputs, expectedCode', [("test_selectIntefral",
-                                                                MallcooBaseConfig.Select_Data_Case(), "success")])
+                                                                MData.Select_Data_Case(), "success")])
     def test_slectIntegral(self, caseName, inputs, expectedCode):
         api = MallcooAPI.SlectIntegral().with_body_params(MallID=inputs["mallid"], PageIndex=inputs["pageIndex"],
                                                           PageSize=inputs['pageSize'], Token=inputs['token'])
