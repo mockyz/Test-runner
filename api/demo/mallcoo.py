@@ -1,6 +1,5 @@
-
-Mallcoo_SERVER = "mallcoo"
 from core.client import HttpClient
+Mallcoo_SERVER = "mallcoo"
 
 
 class MallcooAPI(HttpClient):
@@ -24,12 +23,26 @@ class Login(MallcooAPI):
     登陆
     """
     req_url = "/api/passport/user/Login?_type=3"
-    req_body = {"MallID": '${#mallid}', "Mobile": "${#mobile}", "Pwd": "${#pwd}", "SNSType": 0,  "VCode": "", "LoginType": 1, "OauthID": None, "Keyword": "", "Scene": 4, "GraphicType": 2, "Header": {"Token": None}}
+    req_body = {"MallID": '${#mallid}', "Mobile": "${#mobile}", "Pwd": "${#pwd}", "SNSType": 0,  "VCode": "",
+                "LoginType": 1, "OauthID": None, "Keyword": "", "Scene": 4, "GraphicType": 2, "Header": {"Token": None}}
+
 
 class SlectIntegral(MallcooAPI):
     """
-    查询积分
+    查询积分明细
     """
     req_url = "/api/user/Bonus/GetBonusHistoryList?_type=3"
-    req_body = {"MallID": '${#mallid}', "PageIndex": '${#pageIndex}', "PageSize": '${#pageSize}', "Header": {"Token": '${#token}'}}
+    req_body = {"MallID": '${#mallid}', "PageIndex": '${#pageIndex}', "PageSize": '${#pageSize}',
+                "Header": {"Token": '${#token},15284'}}
+
+
+class GetUserPrivilege(MallcooAPI):
+    req_url = "/api/user/User/GetUserPrivilege?_type=3"
+    req_body = {"MallID": '${#mallid}', "Header": {"Token": '${#token},15284'}}
+
+
+class GetTuan(MallcooAPI):
+    req_url = "/api/tuan/Tuan/List?_type=3"
+    req_body = {"MallId": '${#mallid}', "CategoryId": None, "PageIndex": 0, "Count": 10, "QueryCategory": True,
+                 "QueryListType": True, "Header": {"Token": None}}
 
