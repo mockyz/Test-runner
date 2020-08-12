@@ -2,7 +2,7 @@ from core.db_controller.mongo_db.base.db_base import DBBase
 
 class DBTest(DBBase):
     def __init__(self):
-        super(DBTest, self).__init__("47.100.0.26", 27017, "mallcoo_test", 'user')
+        super(DBTest, self).__init__("47.100.0.26", 26890, "mallcoo", 'user', 'hj', '123456')
 
 class MallcooBaseConfig:
 

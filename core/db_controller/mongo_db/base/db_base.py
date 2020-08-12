@@ -3,9 +3,10 @@ from pymongo import MongoClient
 
 class DBBase(object):
 
-    def __init__(self, host, port, database, collection):
+    def __init__(self, host, port, database, collection, username, password):
         self.conn = MongoClient(host, port)
         self.db = self.conn[database]
+        self.db.authenticate(username, password, mechanism='SCRAM-SHA-1')
         self.collection = self.db[collection]
         self.query = self.collection.find()
 

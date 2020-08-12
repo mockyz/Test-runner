@@ -4,16 +4,18 @@ from core.db_controller.mongo_db.base.db_base import DBBase
 
 class DBTest(DBBase):
     def __init__(self):
-        super(DBTest, self).__init__("47.100.0.26", 27017, "test", 'test')
+        super(DBTest, self).__init__("47.100.0.26", 26890, "mallcoo", 'user', 'hj', '123456')
 
 
 class DBTestDebug(DBBase):
     def __init__(self):
-        super(DBTestDebug, self).__init__("47.100.0.26", 27017, "test", "test")
+        super(DBTestDebug, self).__init__("47.100.0.26", 26890, "mallcoo", "user", 'hj', '123456')
 
 
 if __name__ == '__main__':
     db = DBTest()
+    res1 = db.find_one({'mallid': 10296})
+    print(res1)
     # res = db.get_state()
     # print(res)
     # mydict = {"name": "RUNOOB", "alexa": "10000", "url": "https://www.runoob.com"}
@@ -35,7 +37,7 @@ if __name__ == '__main__':
     #     print(r)
     # res1 = db.find_one({'name': 'aaa'})
     # print(res1)
-    # res2 = db.find_all()
+    # res2 = db.find_all({}, {'_id': 0})
     # for r2 in res2:
     #     print(r2)
     # a = ['test', 'aaa']
